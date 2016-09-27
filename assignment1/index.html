@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="assignment1App">
 	<head>
 		<script src="../angular.min.js"></script>
-		<script src="../app.js"></script>
+		<script src="app_assignment1.js"></script>
 		<title>Lunch Checker</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="styles/bootstrap.min.css">
@@ -11,16 +11,17 @@
 		</style>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" ng-controller="Assignment1Controller">
 			<h1>Lunch Checker</h1>
 			<div class="form-group">
-				<input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control">
+				<input id="lunch-menu" type="text" placeholder="list comma separated dishes you usually have for lunch" class="form-control" ng-model="foodList">
 			</div>
 			<div class="form-group">
-				<button class="btn btn-default">Check If Too Much</button>
+				<button class="btn btn-default" ng-click="performChecking()">Check If Too Much</button>
 			</div>
 			<div class="form-group message">
 				<!-- Your message can go here. -->
+				{{advice}}
 			</div>
 		</div>
 	</body>
