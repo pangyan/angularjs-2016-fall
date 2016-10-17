@@ -1,10 +1,11 @@
 <br/>
 <br/>
 <br/>
-<h3>DNLM in Template</h3>
+<h3>Suggested Items</h3>
 <ol>
   <li ng-repeat="item in items">
-    {{ item }}
-    <button ng-click="controller.onRemove({index: $index});">Remove Item</button>
+    {{ item.name }}, {{ item.short_name }}, {{ item.description }}
+    <button ng-click="onRemove({index: $index});">Remove Item</button>
   </li>
+  <div ng-if="items.length == 0">Nothing found</div>
 </ol>
