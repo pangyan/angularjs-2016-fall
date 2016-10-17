@@ -15,19 +15,21 @@ function NarrowItDownController($scope, MenuSearchService) {
 	narrowItDownController.getMatchedMenuItems = function() {
 		console.log("NarrowItDownController.getMatchedMenuItems called...");
 
-		narrowItDownController.foundItems = MenuSearchService.getMatchedMenuItems($scope.searchTerm);
+//		narrowItDownController.foundItems = MenuSearchService.getMatchedMenuItems($scope.searchTerm);
 //		console.log("Found items in NarrowItDownController: " + narrowItDownController.foundItems);
 
-		var promise = MenuSearchService.getMatchedMenuItems($scope.searchTerm)
+		if ($scope.searchTerm.length > 0) {
+			var promise = MenuSearchService.getMatchedMenuItems($scope.searchTerm)
 
-		promise
-		.then(function (response) {
-			narrowItDownController.foundItems = response;
-			console.log("Found " + narrowItDownController.foundItems.length + " items matching the criteria in NarrowItDownController.");
-		})
-		.catch(function (error) {
-			console.log("Something went wrong in NarrowItDownController...");
-		});
+			promise
+			.then(function (response) {
+				narrowItDownController.foundItems = response;
+				console.log("Found " + narrowItDownController.foundItems.length + " items matching the criteria in NarrowItDownController.");
+			})
+			.catch(function (error) {
+				console.log("Something went wrong in NarrowItDownController...");
+			});
+		}
 	}
 
 	narrowItDownController.removeItem = function(itemIndex) {
