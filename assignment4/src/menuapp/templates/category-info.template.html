@@ -1,6 +1,12 @@
-<ol>
-  <li ng-repeat="item in $ctrl.categoryItems" ui-sref="items({categoryShortName: item.short_name})">
-    {{ item }}
-    <!-- <button ng-click="onRemove({index: $index});">Don't want this one!</button> -->
-  </li>
-</ol>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Category</th>
+    <th>Name</th>
+  </tr>
+  <tr ng-repeat="item in $ctrl.categoryItems" ui-sref="items({categoryShortName: item.short_name})">
+    <td>{{ item.id }}</td>
+    <td>{{ item.short_name }}</td>
+    <td>{{ item.name }}</td>
+  </tr>
+</table>
