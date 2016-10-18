@@ -1,15 +1,15 @@
 (function () {
 'use strict';
 
-angular.module('ShoppingList')
-.service('ShoppingListService', ShoppingListService);
+angular.module('data')
+.service('MenuDataService', MenuDataService);
 
-
-ShoppingListService.$inject = ['$q', '$timeout']
-function ShoppingListService($q, $timeout) {
+MenuDataService.$inject = ['$q', '$timeout']
+function MenuDataService($q, $timeout) {
   var service = this;
 
   // List of shopping items
+  var categories = [];
   var items = [];
 
   // Pre-populate a no cookie list
@@ -41,6 +41,23 @@ function ShoppingListService($q, $timeout) {
     }, 800);
 
     return deferred.promise;
+  };
+
+  service.getAllCategories = function() {
+    console.log("Calling MenuDataService.getAllCategories()...");
+    // TODO
+    //
+    categories.push({"short_name": "A", "description": "DNLM 1st"});
+    categories.push({"short_name": "B", "description": "DNLM 2nd"});
+    
+    return categories;
+  };
+
+  service.getItemsForCategory = function(categoryShortName) {
+    console.log("Calling MenuDataService.getItemsForCategory(categoryShortName)...");
+    // TODO
+    //
+    return items;
   };
 }
 
