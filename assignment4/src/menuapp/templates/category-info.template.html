@@ -1,14 +1,6 @@
-<h3>DNLM</h3>
-<h3>{{ categoryList.length }}</h3>
 <ol>
-  <li ng-repeat="item in categoryList">
+  <li ng-repeat="item in $ctrl.categoryItems" ui-sref="items({categoryShortName: item.short_name})">
     {{ item }}
     <!-- <button ng-click="onRemove({index: $index});">Don't want this one!</button> -->
   </li>
-  <div ng-if="categoryList.length == 0">Nothing found</div>
 </ol>
-<!--
-<div>Item name: {{ itemDetail.name }}</div>
-<div>Item quantity: {{ itemDetail.quantity }}</div>
-<div>Item description: {{ itemDetail.description }}</div>
--->

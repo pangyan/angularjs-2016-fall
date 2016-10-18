@@ -2,15 +2,15 @@
 'use strict';
 
 angular.module('MenuApp')
-.controller('ItemDetailController', ItemDetailController);
+.controller('ItemsController', ItemsController);
 
-// 'item' is injected through state's resolve
-ItemDetailController.$inject = ['item']
-function ItemDetailController(item) {
-  var itemDetail = this;
-  itemDetail.name = item.name;
-  itemDetail.quantity = item.quantity;
-  itemDetail.description = item.description;
+// 'items' is injected through state's resolve
+ItemsController.$inject = ['items']
+function ItemsController(items) {
+  var itemsController = this;
+  itemsController.itemList = items;
+
+  console.log("ItemsController: " + itemsController.itemList);
 }
 
 })();
