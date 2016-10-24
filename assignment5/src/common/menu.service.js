@@ -2,8 +2,24 @@
 "use strict";
 
 angular.module('common')
+.service('InfoService', InfoService)
 .service('MenuService', MenuService);
 
+InfoService.$inject = ['$http', 'ApiPath'];
+function InfoService($http, ApiPath) {
+  var service = this;
+
+  service.userInfo = undefined;
+
+  service.signUp = function(userInfo) {
+    service.userInfo = userInfo;
+  }
+
+  service.getUserInfo = function() {
+    console.log("InfoService.getUserInfo() called...");
+    return service.userInfo;
+  }
+}
 
 MenuService.$inject = ['$http', 'ApiPath'];
 function MenuService($http, ApiPath) {

@@ -11,23 +11,63 @@
 
     <fieldset>
       <form name='signUpForm' class="sign-up-form" novalidate>
-        First Name:&nbsp;
-        <input type="text" name="firstname" ng-model="signUpCtrl.userInfo.firstName"/>
-        <br/>
-        Last Name:&nbsp;
-        <input type="text" name="lastname" ng-model="signUpCtrl.userInfo.lastName"/>
-        <br/>
-        Email Address:&nbsp;
-        <input type="text" name="email" ng-model="signUpCtrl.userInfo.email"/>
-        <br/>
-        Phone Number:&nbsp;
-        <input type="text" name="phone" ng-model="signUpCtrl.userInfo.phone"/>
-        <br/>
-        Favorite Dish Menu Number:&nbsp;
-        <input type="text" name="menuNumber" ng-model="signUpCtrl.userInfo.menuNumber"/>
-        <br/>
-        <button ng-click="signUpCtrl.signUp()">Sign Up</button>
-  
+        <table>
+          <tr>
+            <td>First Name:&nbsp;</td>
+            <td><input type="text" name="firstname" ng-model="signUpCtrl.userInfo.firstName" required/></td>
+            <td>
+              <span ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
+                Please fill in your first name.
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>Last Name:&nbsp;</td>
+            <td><input type="text" name="lastname" ng-model="signUpCtrl.userInfo.lastName" required/></td>
+            <td>
+              <span ng-if="signUpForm.lastname.$error.required && signUpForm.lastname.$touched">
+                Please fill in your last name.
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>Email Address:&nbsp;</td>
+            <td><input type="email" name="email" ng-model="signUpCtrl.userInfo.email" placeholder="handle@domain" required/></td>
+            <td>
+              <span ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+                Please provide a valid email address with the format handle@domain.
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>Phone Number:&nbsp;</td>
+            <td><input type="text" name="phone" ng-model="signUpCtrl.userInfo.phone" placeholder="###-###-####" pattern="(\d{3})-(\d{3})-(\d{4})" required/></td>
+            <td>
+              <span ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+                Phone must be in the format ###-###-####.
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>Favorite Dish Menu Number:&nbsp;</td>
+            <td><input type="text" name="menuNumber" ng-model="signUpCtrl.userInfo.menuNumber" required/></td>
+            <td>
+              <span ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
+                TODO...
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><button ng-click="signUpCtrl.signUp()">Sign Up</button></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
       </form>
     </fieldset>
   </div>

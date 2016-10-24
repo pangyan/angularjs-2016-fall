@@ -203,3 +203,9 @@ button {
   color: #000000;
 }
 
+form table, form th, form td {
+  border: 0px solid black;
+  border-collapse: collapse;
+  padding-right: 50px;
+  text-align: left;
+}

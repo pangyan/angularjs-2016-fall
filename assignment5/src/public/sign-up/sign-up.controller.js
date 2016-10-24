@@ -4,22 +4,26 @@
 angular.module('public')
 .controller('SignUpController', SignUpController);
 
-SignUpController.$inject = [];
-function SignUpController() {
+SignUpController.$inject = ['InfoService'];
+function SignUpController(InfoService) {
   var $ctrl = this;
 
   $ctrl.userInfo = {};
-  $ctrl.userInfo.firstName = "FFFFFirst";
-  $ctrl.userInfo.lastName = "LLLLLast";
-  $ctrl.userInfo.email = "EEE@EEEmail.com";
-  $ctrl.userInfo.phone = "4670";
-  $ctrl.userInfo.menuNumber = "9394";
+  $ctrl.userInfo.firstName = "";
+  $ctrl.userInfo.lastName = "";
+  $ctrl.userInfo.email = "";
+  $ctrl.userInfo.phone = "";
+  $ctrl.userInfo.menuNumber = "";
 
-  console.log("DNLM!!!!!");
-  console.log($ctrl.userInfo);
+  console.log("SignUpController()" + $ctrl.userInfo);
   
   $ctrl.signUp = function() {
-    console.log("SignUpController.signUp(...) called");
+    console.log("SignUpController.signUp() called...");
+    console.log("SignUpController.signUp()" + $ctrl.userInfo.firstName);
+    InfoService.signUp($ctrl.userInfo);
+  }
+
+  $ctrl.validateMenuNumber = function() {
     // TODO
   }
 }
