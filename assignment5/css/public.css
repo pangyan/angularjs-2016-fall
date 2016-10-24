@@ -183,3 +183,23 @@ h3.menu-item-title {
     width: 100%;
   }
 }
+
+/********** Input Forms **********/
+/*
+form {
+  position: absolute;
+  left: 300px;
+}
+*/
+
+input {
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+button {
+  font-size: 14px;
+  color: #000000;
+}
+

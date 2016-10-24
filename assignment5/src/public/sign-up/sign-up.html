@@ -1,0 +1,35 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign Up</h2>
+  <div class="text-center">
+
+
+  <!--
+  <menu-category ng-repeat="menuCategory in menuCtrl.menuCategories"
+                 category="menuCategory">
+  </menu-category>
+  -->
+
+    <fieldset>
+      <form name='signUpForm' class="sign-up-form" novalidate>
+        First Name:&nbsp;
+        <input type="text" name="firstname" ng-model="signUpCtrl.userInfo.firstName"/>
+        <br/>
+        Last Name:&nbsp;
+        <input type="text" name="lastname" ng-model="signUpCtrl.userInfo.lastName"/>
+        <br/>
+        Email Address:&nbsp;
+        <input type="text" name="email" ng-model="signUpCtrl.userInfo.email"/>
+        <br/>
+        Phone Number:&nbsp;
+        <input type="text" name="phone" ng-model="signUpCtrl.userInfo.phone"/>
+        <br/>
+        Favorite Dish Menu Number:&nbsp;
+        <input type="text" name="menuNumber" ng-model="signUpCtrl.userInfo.menuNumber"/>
+        <br/>
+        <button ng-click="signUpCtrl.signUp()">Sign Up</button>
+  
+      </form>
+    </fieldset>
+  </div>
+
+</div>
