@@ -53,7 +53,7 @@ function MenuService($http, ApiPath, $q) {
 
     var deferred = $q.defer();
 
-    $http({
+    $https({
       method: "GET",
       url: (url)
     })
