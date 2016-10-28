@@ -14,6 +14,10 @@ function SignUpController(InfoService, MenuService) {
   $ctrl.userInfo.email = "";
   $ctrl.userInfo.phone = "";
   $ctrl.userInfo.menuNumber = "";
+  $ctrl.userInfo.shortName = "";
+  $ctrl.userInfo.name = "";
+  $ctrl.userInfo.description = "";
+  $ctrl.userInfo.categoryShortName = "";
 
   $ctrl.signUpMessage = "";
 
@@ -37,10 +41,16 @@ function SignUpController(InfoService, MenuService) {
 
     MenuService.getMenuItem(shortName).then(function (response) {
       console.log("SignUpController.validateMenuNumber() response: " + response);
+      console.log(response);
 
-      if (response != 'Y') {
+      if (response.shortName == null) {
         console.log("SignUpController.validateMenuNumber(): No such menu number exists...");
         $ctrl.menuNumberMessage = "No such menu number exists.";
+      } else {
+        $ctrl.userInfo.shortName = response.shortName;
+        $ctrl.userInfo.name = response.name;
+        $ctrl.userInfo.description = response.description;
+        $ctrl.userInfo.categoryShortName = response.categoryShortName;
       }
     });
   }

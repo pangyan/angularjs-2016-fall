@@ -26,8 +26,14 @@
             <td>{{ myInfoCtrl.myInfo.phone }}</td>
           </tr>
           <tr>
-            <td>Favorite Dish Menu Number:&nbsp;</td>
-            <td>{{ myInfoCtrl.myInfo.menuNumber }}</td>
+            <td>Favorite Dish:&nbsp;</td>
+            <!-- <td>{{ myInfoCtrl.myInfo.menuNumber }} {{ myInfoCtrl.myInfo.name }} {{ myInfoCtrl.myInfo.description }} {{ myInfoCtrl.myInfo.categoryShortName }}</td> -->
+            <td>{{ myInfoCtrl.myInfo.name }} ({{ myInfoCtrl.myInfo.description }})</td>
+          </tr>
+          <tr>
+            <!-- <td>{{ myInfoCtrl.basePath }}/images/menu/{{ myInfoCtrl.myInfo.categoryShortName }}/{{ myInfoCtrl.myInfo.categoryShortName }}.jpg</td> -->
+            <td>&nbsp;</td>
+            <td><img class="img-responsive" width="250" height="150" ng-src="images/menu/{{ myInfoCtrl.myInfo.categoryShortName }}/{{ myInfoCtrl.myInfo.categoryShortName }}.jpg" alt="{{ myInfoCtrl.myInfo.name }}"></td>
           </tr>
         </table>
       </form>

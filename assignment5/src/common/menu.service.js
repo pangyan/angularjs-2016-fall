@@ -49,7 +49,7 @@ function MenuService($http, ApiPath, $q) {
 
   service.callWebService = function(url) {
     console.log("Calling MenuDataService.callWebService()...");
-    var found = undefined;
+    var item = undefined;
 
     var deferred = $q.defer();
 
@@ -59,18 +59,29 @@ function MenuService($http, ApiPath, $q) {
     })
     .then(function (result) {
       console.log("Response received in MenuDataService.callWebService()...");
-      found = "Y";
-      deferred.resolve(found);
+      item = {};
+
+      console.log(result.data.short_name);
+      console.log(result.data.name);
+      console.log(result.data.description);
+      console.log(result.data.category_short_name);
+
+      item.shortName = result.data.short_name;
+      item.name = result.data.name;
+      item.description = result.data.description;
+      item.categoryShortName = result.data.category_short_name;
+
+      deferred.resolve(item);
     })
     .catch(function (error) {
       console.log("Something went wrong in MenuDataService.callWebService()...");
-      found = "N";
-      deferred.resolve(found);
+      item = {};
+      deferred.resolve(item);
     });
 
-    found = deferred.promise;
+    item = deferred.promise;
 
-    return $q.when(found);
+    return $q.when(item);
   }
 }
 
