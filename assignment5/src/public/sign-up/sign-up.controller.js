@@ -8,16 +8,20 @@ SignUpController.$inject = ['InfoService', 'MenuService'];
 function SignUpController(InfoService, MenuService) {
   var $ctrl = this;
 
-  $ctrl.userInfo = {};
-  $ctrl.userInfo.firstName = "";
-  $ctrl.userInfo.lastName = "";
-  $ctrl.userInfo.email = "";
-  $ctrl.userInfo.phone = "";
-  $ctrl.userInfo.menuNumber = "";
-  $ctrl.userInfo.shortName = "";
-  $ctrl.userInfo.name = "";
-  $ctrl.userInfo.description = "";
-  $ctrl.userInfo.categoryShortName = "";
+  $ctrl.userInfo;
+
+  if ($ctrl.userInfo == null) {
+    $ctrl.userInfo = {};
+    $ctrl.userInfo.firstName = "";
+    $ctrl.userInfo.lastName = "";
+    $ctrl.userInfo.email = "";
+    $ctrl.userInfo.phone = "";
+    $ctrl.userInfo.menuNumber = "";
+    $ctrl.userInfo.shortName = "";
+    $ctrl.userInfo.name = "";
+    $ctrl.userInfo.description = "";
+    $ctrl.userInfo.categoryShortName = "";
+  }
 
   $ctrl.signUpMessage = "";
 
