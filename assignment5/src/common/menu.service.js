@@ -21,8 +21,8 @@ function InfoService($http, ApiPath) {
   }
 }
 
-MenuService.$inject = ['$http', 'ApiPath'];
-function MenuService($http, ApiPath) {
+MenuService.$inject = ['$http', 'ApiPath', '$q'];
+function MenuService($http, ApiPath, $q) {
   var service = this;
 
   service.getCategories = function () {
@@ -30,7 +30,6 @@ function MenuService($http, ApiPath) {
       return response.data;
     });
   };
-
 
   service.getMenuItems = function (category) {
     var config = {};
@@ -43,6 +42,36 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.getMenuItem = function (shortName) {
+    console.log("Calling MenuService.getMenuItem(shortName)..., short name = " + shortName + "...");
+    return service.callWebService(ApiPath + '/menu_items/' + shortName + '.json');
+  }
+
+  service.callWebService = function(url) {
+    console.log("Calling MenuDataService.callWebService()...");
+    var found = undefined;
+
+    var deferred = $q.defer();
+
+    $http({
+      method: "GET",
+      url: (url)
+    })
+    .then(function (result) {
+      console.log("Response received in MenuDataService.callWebService()...");
+      found = "Y";
+      deferred.resolve(found);
+    })
+    .catch(function (error) {
+      console.log("Something went wrong in MenuDataService.callWebService()...");
+      found = "N";
+      deferred.resolve(found);
+    });
+
+    found = deferred.promise;
+
+    return $q.when(found);
+  }
 }
 
 

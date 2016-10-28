@@ -1,10 +1,37 @@
 <div class="container">
   <h2 id="menu-categories-title" class="text-center">My Info</h2>
   <div class="text-center">
-    My info goes here...
-    <br/>
-    Not signed in yet???
-    {{ myInfoCtrl.myInfo.firstName }}
+
+    <div ng-if="myInfoCtrl.myInfo == null">
+      Not Signed Up Yet. <a ui-sref="public.signup">Sign up</a> Now!
+    </div>
+
+    <div ng-if="myInfoCtrl.myInfo != null">
+      <form name='displayInfoForm' class="display-info-form" novalidate>
+        <table>
+          <tr>
+            <td>First Name:&nbsp;</td>
+            <td>{{ myInfoCtrl.myInfo.firstName }}</td>
+          </tr>
+          <tr>
+            <td>Last Name:&nbsp;</td>
+            <td>{{ myInfoCtrl.myInfo.lastName }}</td>
+          </tr>
+          <tr>
+            <td>Email Address:&nbsp;</td>
+            <td>{{ myInfoCtrl.myInfo.email }}</td>
+          </tr>
+          <tr>
+            <td>Phone Number:&nbsp;</td>
+            <td>{{ myInfoCtrl.myInfo.phone }}</td>
+          </tr>
+          <tr>
+            <td>Favorite Dish Menu Number:&nbsp;</td>
+            <td>{{ myInfoCtrl.myInfo.menuNumber }}</td>
+          </tr>
+        </table>
+      </form>
+    </div>
   </div>
 
   <!--

@@ -50,11 +50,13 @@
           </tr>
           <tr>
             <td>Favorite Dish Menu Number:&nbsp;</td>
-            <td><input type="text" name="menuNumber" ng-model="signUpCtrl.userInfo.menuNumber" required/></td>
+            <td><input type="text" name="menuNumber" ng-model="signUpCtrl.userInfo.menuNumber" ng-blur="signUpCtrl.validateMenuNumber(signUpCtrl.userInfo.menuNumber)" required/></td>
             <td>
-              <span ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
-                TODO...
+              {{ signUpCtrl.menuNumberMessage }}
+              <!--
+              <span ng-if="signUpCtrl.menuNumberMessage <> ''">
               </span>
+              -->
             </td>
           </tr>
           <tr>
@@ -63,8 +65,10 @@
             <td>&nbsp;</td>
           </tr>
           <tr>
-            <td><button ng-click="signUpCtrl.signUp()">Sign Up</button></td>
-            <td>&nbsp;</td>
+            <td><button ng-click="signUpCtrl.signUp()" ng-disabled="signUpForm.$invalid || signUpCtrl.menuNumberMessage.length > 0">Sign Up</button></td>
+            <td>
+              {{ signUpCtrl.signUpMessage }}
+            </td>
             <td>&nbsp;</td>
           </tr>
         </table>
