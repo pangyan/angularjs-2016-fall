@@ -21,7 +21,8 @@ function SignUpController(InfoService, MenuService) {
 
   $ctrl.signUpMessage = "";
 
-  $ctrl.menuNumberMessage = "";
+  $ctrl.menuNumberMessage = "Pending check...";
+  $ctrl.itemFound = undefined;
 
   console.log("SignUpController()" + $ctrl.userInfo);
   
@@ -37,8 +38,6 @@ function SignUpController(InfoService, MenuService) {
     console.log("SignUpController.validateMenuNumber() called...");
     console.log("SignUpController.validateMenuNumber() short name: " + shortName);
 
-    $ctrl.menuNumberMessage = "";
-
     MenuService.getMenuItem(shortName).then(function (response) {
       console.log("SignUpController.validateMenuNumber() response: " + response);
       console.log(response);
@@ -46,7 +45,10 @@ function SignUpController(InfoService, MenuService) {
       if (response.shortName == null) {
         console.log("SignUpController.validateMenuNumber(): No such menu number exists...");
         $ctrl.menuNumberMessage = "No such menu number exists.";
+        $ctrl.itemFound = false;
       } else {
+        $ctrl.menuNumberMessage = "";
+        $ctrl.itemFound = true;
         $ctrl.userInfo.shortName = response.shortName;
         $ctrl.userInfo.name = response.name;
         $ctrl.userInfo.description = response.description;
