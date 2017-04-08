@@ -1,0 +1,61 @@
+POS tutorial on LINUX
+
+Date: 24th September 1999
+Time: 10:30am
+Venue: HW-305
+
+Kernel Version 2.2.5
+
+IP Address: 147.8.85.82
+Net Mask: 255.255.255.0 (protocol)
+Default Gateway(IP): 147.8.175.1
+Primary nameserver: 147.8.178.10
+
+Domain name: csis.hku.hk
+Host name: hw305-12.csis.hku.hk
+Secondary nameserver(IP)
+Tertiary nameserver(IP)
+
+FTP site name: ftp.csis.hku.hk
+Red Hat Directory: /pub/linux/redhat/redhat-6.0/i386
+
+Search by Custom.
+HDD:
+----------- Linux-Swap (Mem: Swap system)
+            Linux native (File)
+
+32Mb RAM ------> 32Mb Swap Partition
+                           64  suggest
+                          128 OK
+
+HW 305 - 12       1024   native
+              	  128    swap
+
+Components to install:
+ KDE   n
+GNOME y
+Kernel Development y
+C++ Development y
+C Development y
+Development Libraries y
+
+Create a bootup disk:
+boot.img
+bootnet.img
+pcmcia.img
+rescue.img
+ls.IR
+ls.IR.qz
+
+
+raurite.exe: type which img file to copy to the floppy disk...
+
+After installation: X - server
+
+Account name:pos..  
+
+
+
+
+
+
